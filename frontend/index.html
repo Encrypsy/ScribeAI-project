@@ -1,39 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScribeAI</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .load {
+            width: 100px;
+            height: 100px;
+            margin: 110px auto 0;
+            border: solid 10px #E81741;
+            border-radius: 50%;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            -webkit-transition: all 0.5s ease-in;
+            -webkit-animation-name: rotate;
+            -webkit-animation-duration: 1.0s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+
+            transition: all 0.5s ease-in;
+            animation-name: rotate;
+            animation-duration: 1.0s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+    </style>
 </head>
-<body class="flex flex-col min-h-screen">
+
+<body class="flex flex-col min-h-screen bg-pink-50">
     <!-- Navbar -->
-    <nav class="bg-pink-200 p-4 text-pink-900 flex justify-between">
-        <div>
-            <h1 class="font-bold text-3xl">
-                ScribeAI
-            </h1>
-        </div>
-        <div>
-            <a href="#" class="hover:underline">
-                Logout
-            </a>
-        </div>
+    <nav class="bg-pink-300 p-4 text-pink-900 flex justify-between items-center">
+        <h1 class="font-bold text-3xl">
+            ScribeAI
+        </h1>
+        <a href="#" class="hover:underline text-lg">
+            Logout
+        </a>
     </nav>
 
     <!-- Main Content -->
-    <div>
-        <div>
-            <div class="p-5 border-black-500">
-                <h2 class="flex">
+    <div class="flex-grow container mx-auto mt-10 mb-10 px-4">
+        <div class="max-w-2xl mx-auto space-y-5">
+
+            <!-- Perkenalan -->
+            <div class="p-6 border border-pink-500 bg-pink-100 rounded-lg">
+                <h2 class="flex flex-wrap font-bold text-3xl text-pink-950">
                     Selamat datang di
-                    <div class="ml-2 text-pink-900 font-bold underline">ScribeAI</div>
+                    <span class="ml-2 text-pink-900 underline">ScribeAI</span>
                 </h2>
-                <p>
-                    Hemat waktu menulis artikel blog dari konten video. Masukkan link YouTube-mu, dan AI akan membuatkan artikel yang rapi dan berkualitas secara otomatis.
+                <p class="mt-3 text-pink-950 font-semibold leading-relaxed">
+                    Ubah video YouTube menjadi artikel blog berkualitas tinggi menggunakan kecerdasan buatan. Cukup
+                    masukkan link video YouTube di bawah ini, dan biarkan AI membuatkan kontennya untukmu!
                 </p>
             </div>
+
+            <!-- Input Link Youtube -->
+            <div class="p-6 border border-pink-500 bg-pink-100 rounded-lg">
+                <h2 class="font-bold text-xl text-pink-950 mb-3">
+                    Masukkan link YouTube
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input id="youtubeLink" type="url" placeholder="https://youtube.com/..."
+                        class="flex-grow border border-pink-500 rounded-md bg-white px-3 py-2 text-pink-950 placeholder-pink-400 focus:outline-nonel">
+                    <button id="generateBlogButton"
+                        class="bg-pink-600 hover:bg-pink-700 text-white font-semibold px-5 py-2 rounded-md transition-colors">
+                        Generate
+                    </button>
+                </div>
+            </div>
+
+            <!-- Output Artikel -->
+            <div class="p-6 border border-pink-500 bg-pink-100 rounded-lg">
+                <h2 class="font-bold text-xl text-pink-950 mb-3">
+                    Artikel yang dihasilkan
+                </h2>
+                <!-- section for laoding circle -->
+                <div id="loading-circle" class="load hidden">
+
+                </div>
+                <div id="blogContent"
+                    class="bg-white border border-pink-200 rounded-md p-4 min-h-[150px] text-pink-950 leading-relaxed">
+                    <p class="text-pink-400 italic">
+                        Artikel hasil generate akan muncul di sini setelah kamu memasukkan link YouTube.
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
+
+    <footer class="text-center p-4 text-black mt-6">
+        <a href="https://github.com/Encrypsy" class="text-gray-500">
+            &copy; Malya Maritza, 2026
+        </a>
+    </footer>
+
+    <script>
+        const generateBlogButton = document.getElementById('generateBlogButton');
+        const loadingCircle = document.getElementById('loading-circle');
+        const blogContent = document.getElementById('blogContent');
+        const youtubeLink = document.getElementById('youtubeLink');
+
+        generateBlogButton.addEventListener('click', async () => {
+            // sembunyikan blogContent, munculkan loading
+            blogContent.classList.add('hidden');
+            loadingCircle.classList.remove('hidden');
+
+            try {
+                // TODO: ganti bagian ini dengan fetch ke endpoint Django kamu, contoh:
+                // const response = await fetch('/generate/', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ url: youtubeLink.value })
+                // });
+                // const data = await response.json();
+                // blogContent.innerHTML = data.article;
+
+                // simulasi delay proses generate (hapus ini kalau sudah pakai fetch asli)
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                blogContent.innerHTML = '<p>Artikel hasil generate akan tampil di sini.</p>';
+            } catch (error) {
+                blogContent.innerHTML = '<p class="text-red-500">Terjadi kesalahan saat membuat artikel. Coba lagi.</p>';
+            } finally {
+                // sembunyikan loading, munculkan blogContent lagi
+                loadingCircle.classList.add('hidden');
+                blogContent.classList.remove('hidden');
+            }
+        });
+    </script>
 </body>
+
 </html>
