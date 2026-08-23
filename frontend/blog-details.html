@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Artikel - ScribeAI</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-pink-50">
+    <!-- Navbar -->
+    <nav class="bg-pink-300 p-4 text-pink-900 flex justify-between items-center">
+        <h1 class="font-bold text-3xl">
+            ScribeAI
+        </h1>
+        <div class="flex items-center gap-5">
+            <a href="all-blogs.html" class="hover:underline text-lg">
+                Riwayat
+            </a>
+            <a href="#" class="hover:underline text-lg">
+                Logout
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex-grow container mx-auto mt-10 mb-10 px-4">
+        <div class="max-w-2xl mx-auto space-y-5">
+
+            <!-- Header -->
+            <div class="flex items-center justify-between">
+                <h2 class="font-bold text-3xl text-pink-950">
+                    Detail Artikel
+                </h2>
+                <a href="all-blogs.html" class="text-pink-700 hover:underline text-sm">
+                    &larr; Kembali ke riwayat
+                </a>
+            </div>
+
+            <!-- Detail Card -->
+            <div class="p-6 border border-pink-500 bg-pink-100 rounded-lg space-y-5">
+
+                <!-- Judul & Isi Artikel -->
+                <div>
+                    <h3 class="font-bold text-xl text-pink-950">
+                        Cara Setup Django dari Nol
+                    </h3>
+                    <p class="mt-1 text-pink-950 leading-relaxed">
+                        Django adalah salah satu framework Python paling populer untuk membangun aplikasi web. Pada artikel ini kita akan membahas cara instalasi, struktur project, hingga menjalankan server development pertama kamu. Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    </p>
+                </div>
+
+                <hr class="border-pink-300">
+
+                <!-- Judul Video YouTube -->
+                <div>
+                    <h3 class="font-bold text-xl text-pink-950">
+                        Judul Video YouTube
+                    </h3>
+                    <p class="mt-1 text-pink-950">
+                        Tutorial Django untuk Pemula - Setup dari Nol
+                    </p>
+                </div>
+
+                <!-- Link YouTube -->
+                <div>
+                    <h3 class="font-bold text-xl text-pink-950">
+                        Link YouTube
+                    </h3>
+                    <a href="https://youtube.com/watch?v=abc123" target="_blank"
+                        class="mt-1 inline-block text-pink-700 hover:underline break-all">
+                        https://youtube.com/watch?v=abc123
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="text-center p-4 text-black">
+        <a href="https://github.com/Encrypsy" class="text-gray-500">
+            &copy; Malya Maritza, 2026
+        </a>
+    </footer>
+</body>
+
+</html>

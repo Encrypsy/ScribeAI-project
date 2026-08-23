@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Artikel - ScribeAI</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-pink-50">
+    <!-- Navbar -->
+    <nav class="bg-pink-300 p-4 text-pink-900 flex justify-between items-center">
+        <h1 class="font-bold text-3xl">
+            ScribeAI
+        </h1>
+        <div class="flex items-center gap-5">
+            <a href="index.html" class="hover:underline text-lg">
+                Beranda
+            </a>
+            <a href="#" class="hover:underline text-lg">
+                Logout
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex-grow container mx-auto mt-10 mb-10 px-4">
+        <div class="max-w-2xl mx-auto space-y-5">
+
+            <!-- Header -->
+            <div class="p-6 border border-pink-500 bg-pink-100 rounded-lg">
+                <h2 class="font-bold text-3xl text-pink-950">
+                    Riwayat Artikel
+                </h2>
+                <p class="mt-2 text-pink-950 font-semibold">
+                    Semua artikel blog yang pernah kamu buat dari video YouTube.
+                </p>
+            </div>
+
+            <!-- List Riwayat -->
+            <div id="historyList" class="space-y-4">
+
+                <!-- Item Riwayat -->
+                <a href="blog-details.html" class="block p-6 border border-pink-500 bg-pink-100 rounded-lg hover:bg-pink-200 transition-colors">
+                    <div class="flex justify-between items-start gap-3">
+                        <div class="min-w-0">
+                            <h3 class="font-bold text-xl text-pink-950 truncate">
+                                Cara Setup Django dari Nol
+                            </h3>
+                            <p class="mt-1 text-pink-900 text-sm">
+                                Sumber: youtube.com/watch?v=abc123
+                            </p>
+                            <p class="mt-2 text-pink-950 leading-relaxed line-clamp-2">
+                                Django adalah salah satu framework Python paling populer untuk membangun aplikasi web. Pada artikel ini kita akan membahas...
+                            </p>
+                        </div>
+                        <span class="shrink-0 text-sm text-pink-700 whitespace-nowrap">
+                            23 Agu 2026
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Item Riwayat -->
+                <a href="#" class="block p-6 border border-pink-500 bg-pink-100 rounded-lg hover:bg-pink-200 transition-colors">
+                    <div class="flex justify-between items-start gap-3">
+                        <div class="min-w-0">
+                            <h3 class="font-bold text-xl text-pink-950 truncate">
+                                Tips Produktivitas untuk Developer
+                            </h3>
+                            <p class="mt-1 text-pink-900 text-sm">
+                                Sumber: youtube.com/watch?v=def456
+                            </p>
+                            <p class="mt-2 text-pink-950 leading-relaxed line-clamp-2">
+                                Bekerja sebagai developer sering kali menuntut fokus tinggi dalam waktu lama. Berikut beberapa tips agar tetap produktif...
+                            </p>
+                        </div>
+                        <span class="shrink-0 text-sm text-pink-700 whitespace-nowrap">
+                            20 Agu 2026
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Item Riwayat -->
+                <a href="#" class="block p-6 border border-pink-500 bg-pink-100 rounded-lg hover:bg-pink-200 transition-colors">
+                    <div class="flex justify-between items-start gap-3">
+                        <div class="min-w-0">
+                            <h3 class="font-bold text-xl text-pink-950 truncate">
+                                Mengenal Flexbox dalam CSS
+                            </h3>
+                            <p class="mt-1 text-pink-900 text-sm">
+                                Sumber: youtube.com/watch?v=ghi789
+                            </p>
+                            <p class="mt-2 text-pink-950 leading-relaxed line-clamp-2">
+                                Flexbox adalah salah satu fitur CSS yang memudahkan pengaturan layout secara horizontal maupun vertikal...
+                            </p>
+                        </div>
+                        <span class="shrink-0 text-sm text-pink-700 whitespace-nowrap">
+                            15 Agu 2026
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Empty State (sembunyikan / tampilkan sesuai kondisi data) -->
+            <div id="emptyState" class="hidden p-10 border border-pink-500 bg-pink-100 rounded-lg text-center">
+                <p class="text-pink-950 font-semibold">
+                    Belum ada artikel yang dibuat. Yuk mulai generate artikel pertamamu!
+                </p>
+                <a href="scribeai.html"
+                    class="inline-block mt-4 bg-pink-600 hover:bg-pink-700 text-white font-semibold px-5 py-2 rounded-md transition-colors">
+                    Buat Artikel
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="text-center p-4 text-black">
+        <a href="https://github.com/Encrypsy" class="text-gray-500">
+            &copy; Malya Maritza, 2026
+        </a>
+    </footer>
+</body>
+
+</html>
